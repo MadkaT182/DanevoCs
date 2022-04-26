@@ -4,19 +4,6 @@ local players = GAMESTATE:GetNumSidesJoined();
 if GAMESTATE:GetPlayMode() ~= "PlayMode_Oni" then
 	for player in ivalues(GAMESTATE:GetHumanPlayers()) do
 		local cstats = STATSMAN:GetCurStageStats():GetPlayerStageStats(player):GetGrade();
-		local staw = STATSMAN:GetCurStageStats():GetPlayerStageStats(player):GetStageAward();
-		local fctype = "";
-		local boolfc = false;
-
-		if staw == "StageAward_SingleDigitW3" or staw =="StageAward_OneW3" or staw =="StageAward_FullComboW3" then
-			boolfc = true;
-		elseif staw == "StageAward_SingleDigitW2" or staw =="StageAward_OneW2" or staw =="StageAward_FullComboW2" then
-			boolfc = true;
-			fctype = "Perfect";
-		elseif staw == "StageAward_SingleDigitW1" or staw =="StageAward_OneW1" or staw =="StageAward_FullComboW1" then
-			boolfc = true;
-			fctype = "Marvelous";
-		end
 
 		t[#t+1] = Def.ActorFrame {
 			InitCommand=function(self)

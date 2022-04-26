@@ -1,8 +1,10 @@
+local rTime = THEME:GetMetric("ScreenGameplay","MinSecondsToMusic");
+
 return Def.ActorFrame {
 	LoadActor(THEME:GetPathG("","lifebar"));
 	LoadActor("diff");
 	Def.ActorFrame{
-		OnCommand=cmd(x,-SCREEN_WIDTH;y,SCREEN_BOTTOM-54;linear,.567;x,SCREEN_LEFT+320;sleep,7;linear,.567;x,-SCREEN_WIDTH);
+		OnCommand=cmd(x,-SCREEN_WIDTH;y,SCREEN_BOTTOM-54;linear,.567;x,SCREEN_LEFT+320;sleep,rTime;linear,.567;x,-SCREEN_WIDTH);
 		LoadActor(THEME:GetPathG("Song","Frame"));
 		LoadActor(THEME:GetPathG("Deco","Note"))..{
 			OnCommand=cmd(x,-276;y,-13;diffusealpha,0;sleep,.567;linear,.5;diffusealpha,1);

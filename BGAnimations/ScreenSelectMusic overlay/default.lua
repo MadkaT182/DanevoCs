@@ -33,13 +33,16 @@ return Def.ActorFrame {
 		OffCommand=cmd(diffusealpha,0);
 	};
 	LoadActor("songdata");
-	LoadActor(THEME:GetPathG("Selm","arrow"))..{
-		OnCommand=cmd(zoomx,-1;x,SCREEN_CENTER_X-99;y,SCREEN_CENTER_Y+62;bob;effectmagnitude,-5,0,0);
-		OffCommand=cmd(diffusealpha,0);
-	};
-	LoadActor(THEME:GetPathG("Selm","arrow"))..{
-		OnCommand=cmd(x,SCREEN_CENTER_X+99;y,SCREEN_CENTER_Y+62;bob;effectmagnitude,5,0,0);
-		OffCommand=cmd(diffusealpha,0);
+	Def.ActorFrame{
+		OnCommand=cmd(diffusealpha,0;x,-SCREEN_WIDTH;y,SCREEN_CENTER_Y+62;decelerate,.734;x,SCREEN_CENTER_X;diffusealpha,1);
+		LoadActor(THEME:GetPathG("Selm","arrow"))..{
+			OnCommand=cmd(zoomx,-1;x,-99;bob;effectmagnitude,-5,0,0);
+			OffCommand=cmd(diffusealpha,0);
+		};
+		LoadActor(THEME:GetPathG("Selm","arrow"))..{
+			OnCommand=cmd(x,99;bob;effectmagnitude,5,0,0);
+			OffCommand=cmd(diffusealpha,0);
+		};
 	};
 	LoadActor("title")..{
 		OnCommand=cmd(x,SCREEN_LEFT+84;y,SCREEN_CENTER_Y-96);
